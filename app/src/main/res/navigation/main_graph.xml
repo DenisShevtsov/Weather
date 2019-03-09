@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.startandroid.weath.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_weatherFragment"
+            app:destination="@+id/weatherFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="ru.startandroid.weath.WeatherFragment"
+        android:label="fragment_weather"
+        tools:layout="@layout/fragment_weather" >
+        <argument
+            android:name="status"
+            app:argType="string"
+            android:defaultValue="Неясно" />
+        <argument
+            android:name="temp"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="tname"
+            app:argType="string"
+            android:defaultValue="Город" />
+    </fragment>
+</navigation>
